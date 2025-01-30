@@ -3,3 +3,29 @@
     <li>{{empleado.nombre}}</li>
     <li>{{empleado.edad}}</li>
 </ul>
+
+<!-- <ul *ngIf="trabajadorExterno; else trabajadoresInternos"> 
+    <li>{{empleado.nombre}}</li>
+</ul>
+
+<ng-template #trabajadoresInternos>
+    <li>Lista de trabajadores internos</li>
+</ng-template>-->
+
+<ul>
+    @if (trabajadorExterno) {
+        <button (click)="cambiarExterno(false)">Mostrar Internos</button>
+        <li>{{empleado.nombre}}</li>
+    }@else {
+        <button (click)="cambiarExterno(true)">Mostrar Externos</button>
+        <li>Lista de trabajadores internos</li>
+        @for (empleado of trabajador; track empleado.id) {
+            <li>{{ empleado.nombre }}</li>
+            @if (empleado.contratado) {
+                <li>Trabajador contratado</li>
+            }@else {
+                <li>Trabajador NO contratado</li>
+            }
+        }
+    }
+</ul>

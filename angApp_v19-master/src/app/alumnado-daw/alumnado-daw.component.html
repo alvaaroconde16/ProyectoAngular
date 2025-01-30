@@ -1,0 +1,21 @@
+<p>Lista de Alumnos de Daw</p>
+
+<ul>
+    @if (alumnoPrimero) {
+        <button (click)="cambiarCurso(false)">Mostrar alumnos de segundo</button>
+        @for (alumno of alumno; track $index) {
+            @if (alumno.curso == "Primero") {
+                <li>{{ alumno.nombre }} {{ alumno.apellidos }}, {{ alumno.dni }}, {{ alumno.fecha_nacimiento }}, {{ alumno.poblacion }}, {{ alumno.telefono }}, 
+                    {{ alumno.curso }}, {{ alumno.modulos }}</li>
+            }
+        }
+    }@else {
+        <button (click)="cambiarCurso(true)">Mostrar alumnos de primero</button>
+        @for (alumno of alumno; track $index) {
+            @if (alumno.curso == "Segundo") {
+                <li>{{ alumno.nombre }} {{ alumno.apellidos }}, {{ alumno.dni }}, {{ alumno.fecha_nacimiento }}, {{ alumno.poblacion }}, {{ alumno.telefono }}, 
+                    {{ alumno.curso }}, {{ alumno.modulos }}</li>
+            }
+        }
+    }
+</ul>
