@@ -29,3 +29,15 @@
         }
     }
 </ul>
+
+<h3>Selector de colores</h3>
+<input type="text" [(ngModel)]="color_seleccionado" />
+<div [ngStyle]="{
+    'background':color_seleccionado,
+    'width':'200px',
+    'height':'200px',
+    'float':'rigth',
+    'margin-rigth':'70%'}"></div>
+<div style="clear:both"></div>
+<strong>Color elegido:</strong>
+{{color_seleccionado}}

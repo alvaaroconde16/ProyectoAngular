@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Empleado } from './empleado';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-empleado',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './empleado.component.html',
   styleUrl: './empleado.component.css'
 })
@@ -14,6 +15,8 @@ export class EmpleadoComponent {
   public empleado: Empleado;
   public trabajador: Array<any>;
   public trabajadorExterno: boolean;
+  public color: string;
+  public color_seleccionado: string;
 
   constructor() {
     this.empleado = new Empleado('Juan', 45, true);
@@ -22,6 +25,8 @@ export class EmpleadoComponent {
                       new Empleado('Maria', 35, true)];
     
     this.trabajadorExterno = true;
+    this.color = 'blue';
+    this.color_seleccionado = '#ccc';
   }
 
   ngOnInit() {
