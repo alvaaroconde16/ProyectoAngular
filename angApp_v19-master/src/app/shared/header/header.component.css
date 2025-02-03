@@ -1,33 +1,38 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    /*margin: -8px;*/
-    background: #181818;
-    color: white;
-  
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
-  
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-  
-      li {
-        a {
-          color: white;
-          text-decoration: none;
-          font-weight: 500;
-  
-          &:hover {
-             color: #1db954; /* Color verde tipo Spotify */
-          }
-        }
-      }
-    }
+  display: flex;
+  justify-content: center; /* Centra el contenido de la barra */
+  align-items: center;
+  padding: 7px;
+  margin: -8px;
+  background: #032541;
+  color: white;
+}
+
+.barra {
+  width: 100%;
+  max-width: 1320px; /* Limitamos el ancho máximo */
+  display: flex;
+  justify-content: space-between; /* Deja espacio entre el logo y los enlaces */
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    color: #1db954; /* Color verde tipo Spotify */
   }
-  
+}

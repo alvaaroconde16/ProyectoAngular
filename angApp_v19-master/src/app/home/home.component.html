@@ -1,5 +1,22 @@
 <div class="home">
-    <h1>Bienvenido a Deezer 🎶</h1>
-    <p>Explora y disfruta de tu música favorita</p>
-  </div>
+  <h1>Bienvenido a The Movie 🎬</h1>
+  <p>Explora y disfruta de tus películas favoritas</p>
+
+  <div class="movies">
+    <h2>Películas Populares</h2>
   
+    @if (popularMovies.length === 0) {
+      <p>Cargando películas...</p>
+    }
+  
+    <div class="movie-list">
+      @for (movie of popularMovies; track movie.id) {
+        <div class="movie-card">
+          <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}">
+          <h3>{{ movie.title }}</h3>
+          <p> {{ movie.release_date }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>
