@@ -1,26 +1,5 @@
 .home {
-  padding-top: 20px;
   width: 100%; /* Ocupa el 100% del ancho */
-  max-width: 1500px; 
-  margin: 0 auto; /* Centra el contenedor principal */
-  text-align: center;
-}
-
-.movies {
-  text-align: center;
-}
-
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 40px;
-}
-
-.movie-card {
-  width: 200px;
-  border-radius: 10px;
   text-align: center;
 }
 
@@ -28,4 +7,29 @@
   width: 100%;
   border-radius: 10px;
 }
+
+#topRatedCarousel {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+}
+
+.carousel-inner img {
+  max-height: 400px; /* Ajustar el tamaño de las imágenes */
+  object-fit: cover;
+}
+
 

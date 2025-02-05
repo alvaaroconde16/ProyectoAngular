@@ -8,10 +8,19 @@ import { TmdbService } from '../services/tmdb.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  topRatedMovies: any[] = [];
   popularMovies: any[] = [];
 
   constructor(private tmdbService: TmdbService) {
     this.loadPopularMovies(); // Llamamos la función al iniciar
+    this.loadTopRatedMovies();
+  }
+
+  // Cargar las películas mejor puntuadas
+  loadTopRatedMovies(): void {
+    this.tmdbService.getTopRatedMovies().subscribe(response => {
+      this.topRatedMovies = response.results; // Guardamos las películas en la variable
+    });
   }
 
   // Función para cargar las películas populares

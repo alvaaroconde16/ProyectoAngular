@@ -1,20 +1,45 @@
-<div class="home">
-  <h1>Bienvenido a The Movie 🎬</h1>
+<div class="container home">
+  <h1 class="mt-5">Bienvenido a The Movie 🎬</h1>
   <p>Explora y disfruta de tus películas favoritas</p>
 
+
+  <div id="topRatedCarousel" class="carousel slide my-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      @for (movie of topRatedMovies; track movie.id) {
+        <div class="carousel-item" [class.active]="movie.id === topRatedMovies[0].id">
+          <img [src]="'https://image.tmdb.org/t/p/w780' + movie.backdrop_path" class="d-block w-100" alt="{{ movie.title }}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{ movie.title }}</h5>
+          </div>
+        </div>
+      }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
   <div class="movies">
-    <h2>Películas Populares</h2>
+    <h2 class="my-4">Películas Populares</h2>
   
     @if (popularMovies.length === 0) {
       <p>Cargando películas...</p>
     }
   
-    <div class="movie-list">
+    <div class="row">
       @for (movie of popularMovies; track movie.id) {
-        <div class="movie-card">
-          <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}">
-          <h3>{{ movie.title }}</h3>
-          <p> {{ movie.release_date }}</p>
+        <div class="col-6 col-md-4 col-lg-2 d-flex justify-content-center">
+          <div class="movie-card">
+            <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}">
+            <h3 class="mt-3">{{ movie.title }}</h3>
+            <p> {{ movie.release_date }}</p>
+          </div>
         </div>
       }
     </div>
