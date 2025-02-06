@@ -8,10 +8,6 @@
   border-radius: 10px;
 }
 
-#topRatedCarousel {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
 .carousel-item {
   text-align: center;
 }
@@ -30,6 +26,10 @@
 .carousel-inner img {
   max-height: 400px; /* Ajustar el tamaño de las imágenes */
   object-fit: cover;
+}
+
+.movies img {
+  width: 200px;
 }
 
 

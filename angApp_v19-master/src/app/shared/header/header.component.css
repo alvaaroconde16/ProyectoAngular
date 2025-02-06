@@ -1,16 +1,21 @@
 .navbar {
   display: flex;
   justify-content: center; /* Centra el contenido de la barra */
-  align-items: center;
-  padding: 25px;
+  padding: 15px;
   margin: -8px;
   background: #032541;
+  align-items: center;
   color: white;
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 29px;
   font-weight: bold;
+  letter-spacing: 3px;
+  background: linear-gradient(125deg, #ff6f61, #d147a3, #1e90ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .nav-links {
@@ -23,10 +28,47 @@
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 15.5px;
   text-align: center;
   align-items: center;
 
   &:hover {
     color: #1db954; /* Color verde tipo Spotify */
   }
+}
+
+.subNav {
+  padding: 15px 0 9px;
+  border-bottom: 1px solid lightgray;
+}
+
+.subNav div {
+  align-items: center;
+  padding: 0;
+}
+
+input {
+  border: none;
+  width: 100%;
+}
+
+.barra {
+  margin: 0 auto;
+}
+
+.input-group-text {
+  background: transparent;
+  border: none;
+  padding: 0 10px; /* Espaciado interno */
+}
+
+.input-group .form-control {
+  border: none ;
+  box-shadow: none;
+  font-style: italic;
+  color: rgb(192, 192, 192);
+}
+
+.form-control::placeholder {
+  color: rgb(192, 192, 192); /* Color gris para que se vea elegante */
 }
