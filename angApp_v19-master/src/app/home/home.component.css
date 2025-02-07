@@ -1,6 +1,5 @@
 .home {
   width: 100%; /* Ocupa el 100% del ancho */
-  text-align: center;
 }
 
 .movie-card img {
@@ -24,12 +23,20 @@
 }
 
 .carousel-inner img {
-  max-height: 400px; /* Ajustar el tamaño de las imágenes */
+  max-height: 450px; /* Ajustar el tamaño de las imágenes */
   object-fit: cover;
 }
 
 .movies img {
-  width: 200px;
+  width: 160px;
 }
 
 
+.scroll-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto; /* Scroll horizontal */
+  padding-bottom: 10px;
+  scrollbar-width: thin; /* Reduce el tamaño del scrollbar */
+  scrollbar-color: #ccc transparent; /* Color del scrollbar */
+}

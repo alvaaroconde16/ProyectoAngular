@@ -1,0 +1,27 @@
+.footer {
+    background: #032541;
+    color: white;
+    padding: 20px 0;
+    margin-top: 20px;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .social-icons {
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #1db954; /* Verde tipo Spotify */
+  }
+  

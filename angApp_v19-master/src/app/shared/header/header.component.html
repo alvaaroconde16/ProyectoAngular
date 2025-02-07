@@ -16,7 +16,7 @@
     <span class="input-group-text">
       <i class="bi bi-search"></i> <!-- Icono de lupa -->
     </span>
-    <input type="text" class="form-control" placeholder="Buscar una película, serie, persona...">
+    <input type="text" [(ngModel)]="searchQuery" class="form-control" placeholder="Buscar una película, serie, persona..." (keyup.enter)="buscar()">
   </div>
 </div>
   

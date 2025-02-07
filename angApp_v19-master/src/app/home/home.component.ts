@@ -26,7 +26,7 @@ export class HomeComponent {
   // Función para cargar las películas populares
   loadPopularMovies(): void {
     this.tmdbService.getPopularMovies().subscribe(response => {
-      this.popularMovies = response.results.slice(0, 12); // Solo mostramos las 10 primeras películas
+      this.popularMovies = response.results.slice(0, 14); // Solo mostramos las 10 primeras películas
     });
   }
 }
