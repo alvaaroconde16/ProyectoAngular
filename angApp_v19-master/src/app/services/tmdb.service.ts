@@ -35,4 +35,8 @@ export class TmdbService {
   getTopRatedMovies(): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/top_rated?api_key=${this.apiKey}`, this.getHeaders());
   }
+
+  searchActors(query: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search/person?query=${query}&api_key=${this.apiKey}`, this.getHeaders());
+  }
 }

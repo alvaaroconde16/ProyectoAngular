@@ -9,7 +9,9 @@ import { TmdbService } from '../services/tmdb.service';
   styleUrl: './busqueda.component.css'
 })
 export class BusquedaComponent {
-  searchResults: any[] = [];
+  searchMovies: any[] = [];
+  searchActors: any[] = [];
+
   query: string = '';
 
   constructor(private route: ActivatedRoute, private tmdbService: TmdbService) {}
@@ -20,7 +22,11 @@ export class BusquedaComponent {
 
       if (this.query) {
         this.tmdbService.searchMovies(this.query).subscribe(response => {
-          this.searchResults = response.results;
+          this.searchMovies = response.results;
+        });
+
+        this.tmdbService.searchActors(this.query).subscribe(response => {
+          this.searchActors = response.results;
         });
       }
       
