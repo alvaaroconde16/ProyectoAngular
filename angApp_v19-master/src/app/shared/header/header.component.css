@@ -1,8 +1,8 @@
+/* Estilos generales */
 .navbar {
   display: flex;
-  justify-content: center; /* Centra el contenido de la barra */
-  padding: 15px;
-  margin: -8px;
+  justify-content: center;
+  padding: 10px;
   background: #032541;
   align-items: center;
   color: white;
@@ -10,15 +10,15 @@
 
 .logo {
   font-size: 29px;
-  font-weight: bold;
-  letter-spacing: 3px;
+  font-weight: 1000;
+  letter-spacing: 4px;
   background: linear-gradient(125deg, #ff6f61, #d147a3, #1e90ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.logo a{
+.logo a {
   text-decoration: none;
   color: inherit;
 }
@@ -27,26 +27,61 @@
   list-style: none;
   display: flex;
   margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
 }
 
 .nav-links li a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 15.5px;
-  text-align: center;
-  align-items: center;
-
-  &:hover {
-    color: #d147a3; /* Color verde tipo Spotify */
-  }
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
 }
+
+/* Menú desplegable */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu li a {
+  color: #131313;
+  font-size: 13px;
+  padding: 10px;
+  font-weight: 410;
+}
+
+.dropdown-menu li a:hover {
+  background: #f0f0f0;
+}
+
+/* Mostrar el menú cuando el usuario pasa el ratón */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 
 
 /* AQUÍ COMENZAMOS CON LA BARRA DE BÚSQUEDA */
 
 .subNav {
-  padding: 13px 0 7px;
+  padding: 5px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -69,9 +104,9 @@ input {
   border: none ;
   box-shadow: none;
   font-style: italic;
-  color: rgb(192, 192, 192);
+  color: rgb(161, 161, 161);
 }
 
 .form-control::placeholder {
-  color: rgb(192, 192, 192); /* Color gris para que se vea elegante */
+  color: rgb(161, 161, 161); /* Color gris para que se vea elegante */
 }

@@ -4,12 +4,36 @@
           <span><a routerLink="home">TMDB</a></span>
         </div>
         <ul class="nav-links gap-4 justify-content-center">
-          <li><a routerLink="home">Inicio</a></li>
-          <li><a routerLink="/search">Buscar</a></li>
-          <li><a routerLink="/favorites">Favoritos</a></li>
+
+          <!-- Menú desplegable de Películas -->
+          <li class="dropdown">
+            <a routerLink="/search">Películas</a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/movies/popular">Popular</a></li>
+              <li><a routerLink="/movies/now-playing">En cartelera</a></li>
+            </ul>
+          </li>
+
+          <!-- Menú desplegable de Series -->
+          <li class="dropdown">
+            <a routerLink="/search">Series</a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/movies/popular">Popular</a></li>
+              <li><a routerLink="/movies/now-playing">Mejor valoradas</a></li>
+            </ul>
+          </li>
+
+          <!-- Menú desplegable de Gente -->
+          <li class="dropdown">
+            <a routerLink="/favorites">Gente</a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/people/popular">Gente Popular</a></li>
+            </ul>
+          </li>
         </ul>
     </div>
 </nav>
+
 
 <div class="subNav align-items-center">
   <div class="container input-group">

@@ -22,13 +22,13 @@
 
 
   <div class="movies">
-    <h3 class="my-4">Películas populares</h3>
+    <h4 class="my-4 ps-5">Películas populares</h4>
   
     @if (popularMovies.length === 0) {
       <p>Cargando películas...</p>
     }
   
-    <div class="scroll-container gap-4">
+    <div class="scroll-container gap-4 px-5">
       @for (movie of popularMovies; track movie.id) {
         <div class="movie-card">
           <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}">

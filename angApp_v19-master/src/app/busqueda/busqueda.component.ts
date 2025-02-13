@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { TmdbService } from '../services/tmdb.service';
 
 @Component({
   selector: 'app-busqueda',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './busqueda.component.html',
   styleUrl: './busqueda.component.css'
 })
@@ -26,7 +26,7 @@ export class BusquedaComponent {
         });
 
         this.tmdbService.searchActors(this.query).subscribe(response => {
-          this.searchActors = response.results;
+          this.searchActors = response.results.splice(0,5);
         });
       }
       

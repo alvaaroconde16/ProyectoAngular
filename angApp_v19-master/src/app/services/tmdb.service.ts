@@ -39,4 +39,8 @@ export class TmdbService {
   searchActors(query: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/search/person?query=${query}&api_key=${this.apiKey}`, this.getHeaders());
   }
+
+  getMovieDetails(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${id}?api_key=${this.apiKey}`, this.getHeaders());
+  }
 }
