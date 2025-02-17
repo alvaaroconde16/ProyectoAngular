@@ -1,1 +1,39 @@
-<p>movie-detail works!</p>
+<div class="container my-5">
+    <!-- Contenedor de detalles de la película -->
+    <div class="row">
+      <!-- Imagen de la película -->
+      <div class="col-md-3 mb-3">
+        <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="{{ movie.title }}" class="img-fluid rounded movie-image">
+      </div>
+  
+      <!-- Detalles de la película -->
+      <div class="col-md-9 mb-3">
+        <h2>{{ movie.title }}</h2>
+        <p class="mt-3"><strong>Fecha de lanzamiento:</strong> {{ movie.release_date }}</p>
+        <h5 class="mb-2">Vista general</h5>
+        <p>{{ movie.overview }}</p>
+      </div>
+    </div>
+  
+    <!-- Reparto -->
+    <div class="cast-container">
+        <h4 class="mt-4">Reparto principal</h4>
+      
+        @if (cast.length === 0) {
+          <p>Cargando reparto...</p>
+        }
+      
+        <div class="scroll-container gap-4 px-2">
+          @for (actor of cast; track actor.id) {
+            <div class="cast-card mt-3 mb-4">
+                <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}">
+                <div class="actor-name px-2">
+                    <h6 class="mt-3">{{ actor.name }}</h6>
+                    <p class="text-secondary">{{ actor.character }}</p>
+                </div>
+            </div>
+          }
+        </div>
+      </div>      
+  </div>
+  

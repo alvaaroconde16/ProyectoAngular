@@ -14,9 +14,12 @@ export class BusquedaComponent {
 
   query: string = '';
 
+  //ActivatedRoute es un servicio que nos permite acceder a los parámetros de la URL.
   constructor(private route: ActivatedRoute, private tmdbService: TmdbService) {}
 
   ngOnInit() {
+
+    //Esto lo usamos para obtener los parámetros de la URL
     this.route.queryParams.subscribe(params => {
       this.query = params['q'];
 

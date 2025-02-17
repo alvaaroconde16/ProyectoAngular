@@ -75,7 +75,8 @@
 
 /* Imagen del actor ocupa todo el ancho */
 .actor-card img {
-  height: 250px;
+  height: 220px;
+  width: 100%;
   object-fit: cover; /* Recorta para mantener proporción */
   display: block;
 }

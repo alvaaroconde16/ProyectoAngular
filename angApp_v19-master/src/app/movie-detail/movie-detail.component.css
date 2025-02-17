@@ -1,0 +1,38 @@
+.cast-container {
+    width: 100%; /* Ocupa el 100% del ancho */
+}
+
+.cast-card img {
+    width: 100%;
+    height: 180px; /* Altura fija para la imagen */
+    object-fit: cover; /* Recortar la imagen para que se ajuste */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.cast-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto; /* Scroll horizontal */
+}
+
+h4 {
+    font-weight: bold;
+}
+
+.cast-card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Fija el ancho de las tarjetas */
+    flex: 0 0 auto; /* No se estiran */
+    transition: transform 0.2s ease;
+}
+
+.cast-card:hover {
+    transform: scale(1.03); /* Efecto hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

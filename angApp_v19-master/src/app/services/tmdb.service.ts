@@ -43,4 +43,9 @@ export class TmdbService {
   getMovieDetails(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${id}?api_key=${this.apiKey}`, this.getHeaders());
   }
+
+  // Obtener reparto de la película
+  getMovieCast(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/movie/${id}/credits?api_key=${this.apiKey}`, this.getHeaders());
+  }
 }
