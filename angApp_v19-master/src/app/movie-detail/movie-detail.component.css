@@ -20,6 +20,11 @@
     overflow-x: auto; /* Scroll horizontal */
 }
 
+.scroll-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
 h4 {
     font-weight: bold;
 }
@@ -28,6 +33,7 @@ h4 {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 150px; /* Fija el ancho de las tarjetas */
+    height: 280px;
     flex: 0 0 auto; /* No se estiran */
     transition: transform 0.2s ease;
 }

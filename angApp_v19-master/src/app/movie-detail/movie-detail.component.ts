@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TmdbService } from '../services/tmdb.service'; // Importa el servicio
 
 @Component({
   selector: 'app-movie-detail',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './movie-detail.component.html',
   styleUrl: './movie-detail.component.css'
 })

@@ -1,0 +1,48 @@
+<div class="artist-detail container mt-5">
+  <div class="row">
+    <!-- Imagen del Artista -->
+    <div class="col-md-3">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + artist.profile_path" alt="Artist Image" class="img-fluid rounded shadow-lg">
+    </div>
+
+    <!-- Información del Artista -->
+    <div class="col-md-9">
+      <h2 class="artist-name">{{ artist.name }}</h2>
+      <p><strong>Fecha de Nacimiento:</strong> {{ artist.birthday }}</p>
+      <p><strong>Lugar de Nacimiento:</strong> {{ artist.place_of_birth }}</p>
+
+      <p><strong>Biografía:</strong></p>
+      
+      <!-- Biografía con recorte inicial -->
+      <!-- Usamos el ngClass para aplicar un estilo cuando la variable sea verdadera, en caso contrario, no se aplicaría -->
+      <p [ngClass]="{ 'collapsed': isCollapsed }">{{ artist.biography || 'No hay biografía disponible.' }}</p>
+
+      <!-- Botón para expandir/contraer biografía -->
+      <button class="btn btn-primary" (click)="toggleBiography()">
+        {{ isCollapsed ? 'Ver más' : 'Ver menos' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Sección de Películas del Artista -->
+  <div class="row my-5">
+    <h3 class="mb-4 mt-4">Películas Destacadas</h3>
+    <div class="movie-grid">
+      @for (movie of artistMovies; track movie.id) {
+        <div class="col">
+          @if (movie.poster_path) {
+            <a routerLink="/movie/{{ movie.id }}" class="movie-card-link">
+              <div class="movie-card shadow">
+                <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" class="img-fluid rounded-top">
+                <div class="movie-info p-3">
+                  <h5>{{ movie.title }}</h5>
+                  <p class="text-secondary">Estreno: {{ movie.release_date }}</p>
+                </div>
+              </div>
+            </a>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

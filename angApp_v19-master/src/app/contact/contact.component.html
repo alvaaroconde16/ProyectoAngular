@@ -1,0 +1,62 @@
+<div class="contact-container py-5">
+    <div class="card shadow-lg p-5">
+      <h2 class="text-center mb-4">Formulario de Contacto</h2>
+  
+      <form [formGroup]="contactForm" (ngSubmit)="enviarCorreo()">
+        
+        <!-- Nombre y Apellidos -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" type="text" class="form-control custom-input" formControlName="nombre" />
+            @if(contactForm.get('nombre')!.touched && contactForm.get('nombre')!.hasError('required')) {
+              <p class="text-danger small">El campo es obligatorio</p>
+            }
+          </div>
+          <div class="col-md-6">
+            <label for="apellidos" class="form-label">Apellidos</label>
+            <input id="apellidos" type="text" class="form-control custom-input" formControlName="apellidos" />
+            @if(contactForm.get('apellidos')!.touched && contactForm.get('apellidos')!.hasError('required')) {
+              <p class="text-danger small">El campo es obligatorio</p>
+            }
+          </div>
+        </div>
+  
+        <!-- Teléfono -->
+        <div class="mb-4">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input id="telefono" type="tel" class="form-control custom-input" formControlName="telefono" />
+          @if(contactForm.get('telefono')!.touched && contactForm.get('telefono')!.hasError('required')) {
+            <p class="text-danger small">El campo es obligatorio</p>
+          }
+        </div>
+  
+        <!-- Correo electrónico -->
+        <div class="mb-4">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input id="email" type="email" class="form-control custom-input" formControlName="email" />
+          @if(contactForm.get('email')!.touched && contactForm.get('email')!.hasError('required')) {
+            <p class="text-danger small">El campo es obligatorio</p>
+          }
+          @if(contactForm.get('email')!.hasError('email')) {
+            <p class="text-danger small">Ingrese un correo válido</p>
+          }
+        </div>
+  
+        <!-- Mensaje -->
+        <div class="mb-4">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea id="mensaje" class="form-control custom-input" formControlName="mensaje" rows="4"></textarea>
+          @if(contactForm.get('mensaje')!.touched && contactForm.get('mensaje')!.hasError('required')) {
+            <p class="text-danger small">El campo es obligatorio</p>
+          }
+          @if(contactForm.get('mensaje')!.hasError('minlength')) {
+            <p class="text-danger small">El mensaje debe tener al menos 10 caracteres</p>
+          }
+        </div>
+  
+        <button type="submit" class="btn btn-primary custom-btn" [disabled]="contactForm.invalid">Enviar</button>
+      </form>
+    </div>
+  </div>
+  

@@ -25,13 +25,15 @@
       
         <div class="scroll-container gap-4 px-2">
           @for (actor of cast; track actor.id) {
-            <div class="cast-card mt-3 mb-4">
-                <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}">
-                <div class="actor-name px-2">
-                    <h6 class="mt-3">{{ actor.name }}</h6>
-                    <p class="text-secondary">{{ actor.character }}</p>
-                </div>
-            </div>
+            <a routerLink="/artist/{{ actor.id }}">
+              <div class="cast-card mt-3 mb-4">
+                  <img [src]="'https://image.tmdb.org/t/p/w200' + actor.profile_path" alt="{{ actor.name }}">
+                  <div class="actor-name px-2">
+                      <h6 class="mt-3">{{ actor.name }}</h6>
+                      <p class="text-secondary">{{ actor.character }}</p>
+                  </div>
+              </div>
+            </a>
           }
         </div>
       </div>      

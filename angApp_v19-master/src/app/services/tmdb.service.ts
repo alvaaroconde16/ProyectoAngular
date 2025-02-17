@@ -48,4 +48,12 @@ export class TmdbService {
   getMovieCast(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/${id}/credits?api_key=${this.apiKey}`, this.getHeaders());
   }
+
+  getActorDetails(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/person/${id}?api_key=${this.apiKey}`, this.getHeaders());
+  }
+
+  getArtistMovies(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/person/${id}/movie_credits?api_key=${this.apiKey}`, this.getHeaders());
+  }
 }
