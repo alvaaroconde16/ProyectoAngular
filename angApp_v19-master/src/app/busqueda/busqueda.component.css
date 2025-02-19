@@ -63,6 +63,7 @@
   background: white;
   border-radius: 12px;
   overflow: hidden;
+  text-decoration: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
@@ -103,5 +104,24 @@
 /* Estilo especial para interpretación */
 .interpretation {
   font-weight: bold;
-  color: #007bff;
+}
+
+.search-page {
+  margin-top: 20px;
+}
+
+
+/* Menú lateral */
+.search-sidebar {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.list-group-item:hover {
+  background: #e9ecef;
 }

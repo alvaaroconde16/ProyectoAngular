@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TmdbService } from '../services/tmdb.service'; // Importa el servicio
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movie-detail',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './movie-detail.component.html',
   styleUrl: './movie-detail.component.css'
 })

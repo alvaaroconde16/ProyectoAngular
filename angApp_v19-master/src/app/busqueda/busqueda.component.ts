@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { TmdbService } from '../services/tmdb.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-busqueda',
-  imports: [RouterModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './busqueda.component.html',
   styleUrl: './busqueda.component.css'
 })
 export class BusquedaComponent {
   searchMovies: any[] = [];
   searchActors: any[] = [];
-
   query: string = '';
+  filtroSeleccionado: string = 'peliculas'; //por defecto se muestran ambos resultados
 
   //ActivatedRoute es un servicio que nos permite acceder a los parámetros de la URL.
   constructor(private route: ActivatedRoute, private tmdbService: TmdbService) {}
@@ -29,7 +30,7 @@ export class BusquedaComponent {
         });
 
         this.tmdbService.searchActors(this.query).subscribe(response => {
-          this.searchActors = response.results.splice(0,5);
+          this.searchActors = response.results.splice(0,8);
         });
       }
       

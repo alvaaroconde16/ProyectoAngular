@@ -33,7 +33,7 @@ h4 {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 150px; /* Fija el ancho de las tarjetas */
-    height: 280px;
+    height: 290px;
     flex: 0 0 auto; /* No se estiran */
     transition: transform 0.2s ease;
 }
@@ -41,4 +41,32 @@ h4 {
 .cast-card:hover {
     transform: scale(1.03); /* Efecto hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.movie-detail {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    padding: 20px;
+    color: white;
+}
+
+/* Overlay oscuro */
+.movie-detail .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+/* Asegurar que el contenido esté sobre el fondo */
+.movie-detail > div {
+    position: relative;
+    z-index: 1;
 }

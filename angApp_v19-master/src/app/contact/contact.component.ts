@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -9,10 +10,8 @@ import { FormsModule, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, 
 })
 export class ContactComponent {
   public contactForm: FormGroup;
-  
-  // nombre: string = '';
-  // email: string = '';
-  // mensaje: string = '';
+  public enviado:boolean = false;
+  public error:boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -24,26 +23,35 @@ export class ContactComponent {
     });
   }
 
-  // Función para enviar el correo (abre el gestor de correos del usuario)
+  // Función para enviar correo con EmailJS
   enviarCorreo() {
+    if (this.contactForm.invalid) {
+      return;
+    }
 
-    const correoDestinatario = 'themoviedb@gmail.com'
-    const asunto = 'Formulario de Contacto';
+    const serviceID = 'service_7crj7xl'; // Reemplázalo con tu Service ID de EmailJS
+    const templateID = 'template_kuknxi8'; // Reemplázalo con tu Template ID
+    const publicKey = '0UO22aaOq-XuKVrjl'; // Reemplázalo con tu Public Key
+
     const datosFormulario = this.contactForm.value;
-    const mailto = `mailto:${correoDestinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(`Nombre: ${datosFormulario.nombre} \nApellidos: ${datosFormulario.apellidos}\nTeléfono: ${datosFormulario.telefono}\nCorreo: ${datosFormulario.email} \nMensaje: ${datosFormulario.mensaje}`)}`;
 
-    window.location.href = mailto;
+    const templateParams = {
+      nombre: datosFormulario.nombre,
+      apellidos: datosFormulario.apellidos,
+      telefono: datosFormulario.telefono,
+      email: datosFormulario.email,
+      mensaje: datosFormulario.mensaje
+    };
 
-    // const correoDestinatario = 'themoviedb@gmail.com';  // Aquí pondrías tu correo
-    // const asunto = 'Formulario de Contacto';
-    // const cuerpo = `Nombre: ${this.nombre}\nCorreo: ${this.email}\n\nMensaje: ${this.mensaje}`;
-
-    // Abre el gestor de correo del usuario con los datos predefinidos
-    // window.location.href = `mailto:${correoDestinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-
-    // Limpiar los campos después de enviar
-    // this.nombre = '';
-    // this.email = '';
-    // this.mensaje = '';
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then(() => {
+        this.enviado = true;
+        this.error = false;
+        this.contactForm.reset(); // Limpiar el formulario
+      })
+      .catch(() => {
+        this.enviado = false;
+        this.error = true;
+      });
   }
 }

@@ -5,21 +5,19 @@
         </div>
         <ul class="nav-links gap-4 justify-content-center">
 
-          <!-- Menú desplegable de Películas -->
-          <li class="dropdown">
-            <a routerLink="/search">Películas</a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/movies/popular">Popular</a></li>
-              <li><a routerLink="/movies/now-playing">En cartelera</a></li>
-            </ul>
+          <!-- Menú de Inicio -->
+          <li>
+            <a routerLink="home">Inicio</a>
           </li>
 
-          <!-- Menú desplegable de Gente -->
+          <!-- Menú de Películas -->
+          <li>
+            <a routerLink="busqueda">Películas</a>
+          </li>
+
+          <!-- Menú de Favoritos -->
           <li class="dropdown">
-            <a routerLink="/favorites">Gente</a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/people/popular">Gente Popular</a></li>
-            </ul>
+            <a routerLink="/favorites">Favoritos</a>
           </li>
 
           <!-- Menú para el formulario de contacto -->

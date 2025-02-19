@@ -16,6 +16,7 @@ export class HeaderComponent {
   buscar() {
     if (this.searchQuery) {
       this.router.navigate(['/busqueda'], { queryParams:  { q: this.searchQuery }}); //se envía el valor de searchQuery como un parámetro en la URL (q=busqueda)
+      this.searchQuery = ''; //se limpia el campo de búsqueda
     }
   }
 }

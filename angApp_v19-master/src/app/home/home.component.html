@@ -28,7 +28,7 @@
       <p>Cargando películas...</p>
     }
   
-    <div class="scroll-container gap-4 px-5">
+    <div class="scroll-container gap-4 px-5 mb-5">
       @for (movie of popularMovies; track movie.id) {
         <div class="movie-card">
           <a routerLink="/movie/{{ movie.id }}">

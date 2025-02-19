@@ -1,22 +1,37 @@
-<div class="container my-5">
-    <!-- Contenedor de detalles de la película -->
-    <div class="row">
-      <!-- Imagen de la película -->
-      <div class="col-md-3 mb-3">
-        <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path" alt="{{ movie.title }}" class="img-fluid rounded movie-image">
-      </div>
+<div class="mb-5">
+    <div class="container-fluid mb-5 p-0">
+      <!-- Contenedor de detalles de la película con fondo -->
+      <div class="movie-detail" 
+          [ngStyle]="{ 'background-image': 'url(https://image.tmdb.org/t/p/w1280' + movie.backdrop_path + ')' }">
+          
+          <!-- Overlay oscuro -->
+          <div class="overlay"></div>
   
-      <!-- Detalles de la película -->
-      <div class="col-md-9 mb-3">
-        <h2>{{ movie.title }}</h2>
-        <p class="mt-3"><strong>Fecha de lanzamiento:</strong> {{ movie.release_date }}</p>
-        <h5 class="mb-2">Vista general</h5>
-        <p>{{ movie.overview }}</p>
+          <!-- Contenedor centrado -->
+          <div class="container py-5">
+            <div class="row">
+                <!-- Imagen de la película -->
+                <div class="col-md-3 mb-3">
+                    <img [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path" 
+                        alt="{{ movie.title }}" 
+                        class="img-fluid rounded movie-image">
+                </div>
+  
+                <!-- Detalles de la película -->
+                <div class="col-md-9 mb-3 text-white">
+                    <h2>{{ movie.title }}</h2>
+                    <p class="mt-3"><strong>Fecha de lanzamiento:</strong> {{ movie.release_date }}</p>
+                    <h5 class="mb-2">Vista general</h5>
+                    <p>{{ movie.overview }}</p>
+                </div>
+            </div>
+          </div>
       </div>
     </div>
+
   
     <!-- Reparto -->
-    <div class="cast-container">
+    <div class="cast-container container">
         <h4 class="mt-4">Reparto principal</h4>
       
         @if (cast.length === 0) {
