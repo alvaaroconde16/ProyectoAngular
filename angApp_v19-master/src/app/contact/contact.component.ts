@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
+import emailjs from 'emailjs-com';
 
 @Component({
   selector: 'app-contact',
