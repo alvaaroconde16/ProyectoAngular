@@ -1,0 +1,24 @@
+<div class="favorites-container container">
+  <h2 class="mt-2 mb-4">Películas Favoritas</h2>
+  
+  <div class="row">
+    @for (movie of favoriteMovies; track movie.id) {
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <a routerLink="/movie/{{ movie.id }}">
+            <img src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.title }}</h5>
+            <p class="card-text text-muted">Fecha de lanzamiento: {{ movie.release_date }}</p>
+
+            <!-- Botón de eliminar de favoritos -->
+            <button (click)="removeFromFavorites(movie.id)" class="btn-favorite">
+              <i class="bi bi-heart-fill"></i> 
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

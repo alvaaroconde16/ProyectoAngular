@@ -3,6 +3,7 @@
   color: #bbb;
   padding: 40px 0;
   font-size: 14px;
+  width: 100%;  /* Asegura que el footer ocupe todo el ancho */
 }
 
 /* Distribuye las secciones del footer correctamente */

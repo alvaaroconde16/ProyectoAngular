@@ -1,0 +1,98 @@
+<div class="container search-page">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Barra de búsqueda -->
+      <div class="input-group mb-4">
+        <span class="input-group-text">
+          <i class="bi bi-search"></i> <!-- Icono de lupa -->
+        </span>
+        <input type="text" [(ngModel)]="query" class="form-control" placeholder="Buscar una película, serie o actor..." (input)="buscar()">
+
+        <!-- Botón de ordenar A-Z / Z-A -->
+        <button class="btn btn-outline-secondary" (click)="toggleSort()">
+          <i class="bi bi-sort-alpha-down"></i> <!-- Icono de ordenar alfabéticamente -->
+        </button>
+      </div>
+
+      <!-- Botones de filtro -->
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <button class="btn btn-primary" (click)="filtroSeleccionado = 'peliculas'">
+          Películas
+        </button>
+        <button class="btn btn-primary" (click)="filtroSeleccionado = 'actores'">
+          Actores
+        </button>
+        <button class="btn btn-primary" (click)="filtroSeleccionado = 'series'">
+          Series
+        </button>
+      </div>
+    </div>
+
+    <!-- Resultados -->
+    <div class="col-md-12">
+      @if (searchMovies.length === 0 && searchActors.length === 0 && searchSeries.length === 0) {
+        <p class="text-center">No se encontraron resultados.</p>
+      }
+
+      <!-- Mostrar Actores -->
+      @if (filtroSeleccionado == 'actores') {
+        <div class="actor-grid mt-4 mb-5">
+          @for (actor of searchActors; track actor.id) {
+            <div class="actor-card">
+              <a routerLink="/artist/{{ actor.id }}" class="text-decoration-none">
+                <img [src]="actor.profile_path ? 'https://image.tmdb.org/t/p/w200' + actor.profile_path : 'https://www.shutterstock.com/image-vector/default-avatar-profile-icon-vector-600nw-1725655669.jpg'" alt="{{ actor.name }}" class="text-black">
+                <div class="actor-info">
+                  <h4><strong>{{ actor.name }}</strong></h4>
+                  <p class="text-muted">Conocido por: {{ actor.known_for_department }}</p>
+                  <p class="interpretation"><strong>Interpretación: </strong> 
+                    {{ actor.known_for[0]?.title || '' }} 
+                    {{ ", " + actor.known_for[1]?.title || '' }} 
+                    {{ ", " + actor.known_for[2]?.title || '' }}
+                  </p>
+                </div>
+              </a>
+            </div>
+          }
+        </div>
+      }
+
+      <!-- Mostrar Películas -->
+      @if (filtroSeleccionado == 'peliculas') {
+        <div class="row">
+          @for (movie of searchMovies; track movie.id) {
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <a routerLink="/movie/{{ movie.id }}">
+                  <img src="https://image.tmdb.org/t/p/w300{{ movie.poster_path }}" class="card-img-top" alt="{{ movie.title }}">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text text-muted">Fecha de lanzamiento: {{ movie.release_date }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      <!-- Mostrar Series -->
+      @if (filtroSeleccionado == 'series') {
+        <div class="row">
+          @for (serie of searchSeries; track serie.id) {
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <a routerLink="/serie/{{ serie.id }}">
+                  <img src="https://image.tmdb.org/t/p/w300{{ serie.poster_path }}" class="card-img-top" alt="{{ serie.name }}">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">{{ serie.name }}</h5>
+                  <p class="card-text text-muted">Fecha de estreno: {{ serie.first_air_date }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+/* Contenedor principal */
+.search-page {
+  margin-top: 20px;
+  padding: 20px 0;
+}
+
+/* Barra de búsqueda */
+.input-group {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-group-text {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilo de los botones de filtro */
+.d-flex {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  font-weight: 500;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Resultados: Listado de películas, actores, y series */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 450px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+/* Estilo para la sección de actores */
+.actor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.actor-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.actor-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.actor-info {
+  text-align: center;
+}
+
+.actor-info h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.actor-info .interpretation {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/* Si no hay resultados */
+.text-center {
+  text-align: center;
+  font-size: 18px;
+  color: #6c757d;
+}
+
+/* Columna de resultados */
+.col-md-12 {
+  margin-bottom: 30px;
+}
+
+/* Estilo para la columna en dispositivos grandes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Mantener las tarjetas con un buen espaciado */
+}
+
+.col-md-3 {
+  padding: 10px;
+}
+
+.col-md-3:last-child {
+  padding-right: 0;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.btn-outline-secondary:hover {
+  color: #495057;
+  background-color: #e9ecef;
+}

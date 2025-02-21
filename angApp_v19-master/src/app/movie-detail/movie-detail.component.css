@@ -25,8 +25,12 @@
     color: inherit;
 }
 
-h4 {
+h4, h2, h5 {
     font-weight: bold;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.747);
 }
 
 .cast-card {
@@ -69,4 +73,47 @@ h4 {
 .movie-detail > div {
     position: relative;
     z-index: 1;
+}
+
+/* Estilo para el botón de favorito */
+.btn-favorite {
+  background: none;
+  border: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto hover */
+.btn-favorite:hover {
+  color: #ff4081; /* Rosa cuando el mouse pasa por encima */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
+/* Estilo para el ícono de corazón */
+.bi-heart, .bi-heart-fill {
+  font-size: 30px; /* Tamaño grande para el ícono */
+}
+
+.bi-heart-fill {
+  color: #ff4081; /* Color rosa cuando está marcado como favorito */
+}
+
+.bi-heart {
+  color: white; /* Corazón vacío en blanco */
+}
+
+
+
+/* Estilo para la sección de películas */
+.card {
+    border: none;
+}
+
+.card-img-top{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 10px;
+    border: none;
 }
