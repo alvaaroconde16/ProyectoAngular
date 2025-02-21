@@ -31,7 +31,6 @@ export class LoginComponent {
 
     if (storedPassword && storedPassword === password) {
       localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('username', username);
       
       this.router.navigate(['/home']).then(() => {
         window.location.reload();

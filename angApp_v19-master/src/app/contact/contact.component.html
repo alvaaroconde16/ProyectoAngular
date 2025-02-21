@@ -1,77 +1,111 @@
 <div class="contact-container py-5">
-    <div class="card shadow-lg p-5">
-      <h2 class="text-center mb-4">Formulario de Contacto</h2>
-  
-      <form [formGroup]="contactForm" (ngSubmit)="enviarCorreo()">
-        
-        <!-- Nombre y Apellidos -->
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input id="nombre" type="text" class="form-control custom-input" formControlName="nombre" />
-            @if(contactForm.get('nombre')!.touched && contactForm.get('nombre')!.hasError('required')) {
+  <div class="card shadow-lg p-5">
+    <h2 class="text-center mb-4">Formulario de Contacto</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="enviarCorreo()">
+
+      <!-- Nombre y Apellidos -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input id="nombre" type="text" class="form-control custom-input" formControlName="nombre" />
+          @if(contactForm.get('nombre')!.touched) {
+            @if(contactForm.get('nombre')!.hasError('required')) {
               <p class="text-danger small">El campo es obligatorio</p>
             }
-          </div>
-          <div class="col-md-6">
-            <label for="apellidos" class="form-label">Apellidos</label>
-            <input id="apellidos" type="text" class="form-control custom-input" formControlName="apellidos" />
-            @if(contactForm.get('apellidos')!.touched && contactForm.get('apellidos')!.hasError('required')) {
-              <p class="text-danger small">El campo es obligatorio</p>
+            @if(contactForm.get('nombre')!.hasError('minlength')) {
+              <p class="text-danger small">Debe tener al menos 3 caracteres</p>
             }
-          </div>
-        </div>
-  
-        <!-- Teléfono -->
-        <div class="mb-4">
-          <label for="telefono" class="form-label">Teléfono</label>
-          <input id="telefono" type="tel" class="form-control custom-input" formControlName="telefono" />
-          @if(contactForm.get('telefono')!.touched && contactForm.get('telefono')!.hasError('required')) {
-            <p class="text-danger small">El campo es obligatorio</p>
+            @if(contactForm.get('nombre')!.hasError('pattern')) {
+              <p class="text-danger small">Solo se permiten letras y espacios</p>
+            }
           }
         </div>
-  
-        <!-- Correo electrónico -->
-        <div class="mb-4">
-          <label for="email" class="form-label">Correo electrónico</label>
-          <input id="email" type="email" class="form-control custom-input" formControlName="email" />
-          @if(contactForm.get('email')!.touched && contactForm.get('email')!.hasError('required')) {
+
+        <div class="col-md-6">
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input id="apellidos" type="text" class="form-control custom-input" formControlName="apellidos" />
+          @if(contactForm.get('apellidos')!.touched) {
+            @if(contactForm.get('apellidos')!.hasError('required')) {
+              <p class="text-danger small">El campo es obligatorio</p>
+            }
+            @if(contactForm.get('apellidos')!.hasError('minlength')) {
+              <p class="text-danger small">Debe tener al menos 3 caracteres</p>
+            }
+            @if(contactForm.get('apellidos')!.hasError('pattern')) {
+              <p class="text-danger small">Solo se permiten letras y espacios</p>
+            }
+          }
+        </div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="mb-4">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input id="telefono" type="tel" class="form-control custom-input" formControlName="telefono" />
+        @if(contactForm.get('telefono')!.touched) {
+          @if(contactForm.get('telefono')!.hasError('required')) {
+            <p class="text-danger small">El campo es obligatorio</p>
+          }
+          @if(contactForm.get('telefono')!.hasError('pattern')) {
+            <p class="text-danger small">Solo se permiten números</p>
+          }
+          @if(contactForm.get('telefono')!.hasError('minlength')) {
+            <p class="text-danger small">Debe tener al menos 8 dígitos</p>
+          }
+          @if(contactForm.get('telefono')!.hasError('maxlength')) {
+            <p class="text-danger small">Debe tener máximo 15 dígitos</p>
+          }
+        }
+      </div>
+
+      <!-- Correo electrónico -->
+      <div class="mb-4">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input id="email" type="email" class="form-control custom-input" formControlName="email" />
+        @if(contactForm.get('email')!.touched) {
+          @if(contactForm.get('email')!.hasError('required')) {
             <p class="text-danger small">El campo es obligatorio</p>
           }
           @if(contactForm.get('email')!.hasError('email')) {
             <p class="text-danger small">Ingrese un correo válido</p>
           }
-        </div>
-  
-        <!-- Mensaje -->
-        <div class="mb-4">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea id="mensaje" class="form-control custom-input" formControlName="mensaje" rows="4"></textarea>
-          @if(contactForm.get('mensaje')!.touched && contactForm.get('mensaje')!.hasError('required')) {
+        }
+      </div>
+
+      <!-- Mensaje -->
+      <div class="mb-4">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea id="mensaje" class="form-control custom-input" formControlName="mensaje" rows="4"></textarea>
+        @if(contactForm.get('mensaje')!.touched) {
+          @if(contactForm.get('mensaje')!.hasError('required')) {
             <p class="text-danger small">El campo es obligatorio</p>
           }
           @if(contactForm.get('mensaje')!.hasError('minlength')) {
-            <p class="text-danger small">El mensaje debe tener al menos 10 caracteres</p>
+            <p class="text-danger small">Debe tener al menos 10 caracteres</p>
           }
+          @if(contactForm.get('mensaje')!.hasError('maxlength')) {
+            <p class="text-danger small">Debe tener máximo 500 caracteres</p>
+          }
+        }
+      </div>
+
+      <!-- Botón de enviar -->
+      <button type="submit" class="btn btn-primary custom-btn" [disabled]="contactForm.invalid">Enviar</button>
+
+      <!-- Mensaje de éxito -->
+      @if(enviado) {
+        <div class="alert alert-success mt-3">
+          ✅ ¡Tu mensaje ha sido enviado con éxito!
         </div>
+      }
 
-        <!-- Botón de enviar -->
-        <button type="submit" class="btn btn-primary custom-btn" [disabled]="contactForm.invalid">Enviar</button>
-
-        <!-- Mensaje de éxito -->
-        @if(enviado) {
-          <div class="alert alert-success mt-3">
-            ✅ ¡Tu mensaje ha sido enviado con éxito!
-          </div>
-        }
-
-        <!-- Mensaje de error -->
-        @if(error) {
-          <div class="alert alert-danger mt-3">
-            ❌ Ocurrió un error al enviar tu mensaje. Inténtalo de nuevo.
-          </div>
-        }
-      </form>
-    </div>
+      <!-- Mensaje de error -->
+      @if(error) {
+        <div class="alert alert-danger mt-3">
+          ❌ Ocurrió un error al enviar tu mensaje. Inténtalo de nuevo.
+        </div>
+      }
+    </form>
   </div>
-  
+</div>

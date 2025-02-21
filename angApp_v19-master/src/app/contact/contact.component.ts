@@ -16,11 +16,11 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
-      nombre: new FormControl('', Validators.required),
-      apellidos: new FormControl('', Validators.required),
-      telefono: new FormControl('', Validators.required),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      apellidos: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      telefono: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(9)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      mensaje: new FormControl('', Validators.required, )
+      mensaje: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]),
     });
   }
 

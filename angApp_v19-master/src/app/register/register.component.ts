@@ -36,10 +36,13 @@ export class RegisterComponent {
 
     // Guardar usuario en localStorage
     localStorage.setItem(username, password);
+
+    localStorage.setItem('isLoggedIn', 'true');
     
-    // Mostrar mensaje de éxito
-    this.successMessage = '¡Registro exitoso! Ahora puedes iniciar sesión.';
+    this.router.navigate(['/home']).then(() => {
+      window.location.reload();
+    });
     
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 }
